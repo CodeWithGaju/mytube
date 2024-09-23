@@ -1,8 +1,7 @@
-import React, { memo, useEffect, useState } from 'react'
+import {useEffect, useState } from 'react'
 import { SEARCH_VIDEOS_API} from '../utils/constants';
 import { useDispatch } from 'react-redux';
 import { addSearchVideos } from '../utils/videosDataSlice';
-import { useNavigate} from 'react-router-dom';
 
 const useSearchVideos = (query) => {
   const [search_videos,setSearchVideos] = useState("");

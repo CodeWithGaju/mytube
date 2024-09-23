@@ -2,7 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 const VideoCard = ({videoItems}) => {
-  // if(videoItems==undefined) return;
   const toogleSideBar = useSelector((store)=>store.app.isMenuOpen);
    const {id,contentDetails,snippet,statistics} = videoItems;
 const {thumbnails,title,channelTitle} = snippet;

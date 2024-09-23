@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import usePopularVideos from '../Hooks/usePopularVideos'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ResultVideoCard from './ResultVideoCard';
@@ -20,7 +19,6 @@ useEffect(()=>{
   return (
     <div className='h-96 dark:bg-black w-[1300]'>
       {searchVideos.map((video)=> <Link to={"/watch?v="+video.id.videoId}  key={video.id}><ResultVideoCard videoItems={video} /></Link>)}
-        {/* <VideoCard thumbnail={thumbnails.medium} /> */}
     </div>
   )
 }

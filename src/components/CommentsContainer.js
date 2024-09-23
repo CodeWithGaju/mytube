@@ -13,7 +13,7 @@ const CommentsContainer = () => {
 //         commentsData.unshift({name:"unknown",comments:createComment});
 //      }
     const Comment = ({comData,condition})=>{
-       if(comData==undefined) return;  
+       if(comData===undefined) return;  
         return(
         <div className='hover:border dark:bg-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-200  dark:hover:bg-opacity-20 ml-28 mt-1 px-1 py-1 rounded-lg'>
         <div className='flex  w-2/3'>

@@ -6,7 +6,7 @@ import  { Search_cache } from '../utils/searchSlice'
 import whiteSearch from '../Svg/whiteSearch.svg'
 import blackSearch from '../Svg/blackSearch.svg'
 import useSearchVideos from '../Hooks/useSearchVideos'
-import { Link, Navigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import BlackYouTube_logo from '../Svg/BlackYouTube_logo.svg'
 import whiteYoutube_logo from "../Svg/WhiteYouTube_logo.svg"
 import Sun from '../Svg/sun.svg'
@@ -17,7 +17,7 @@ import blackUser_icon from '../Svg/blackUser_Icon.svg'
 import whiteUser_icon from '../Svg/whiteUser_Icon.svg'
 
 const Header = () => {
-  // useSearchVideos();
+
   const dispatch = useDispatch();
   const [search_video,setSearchVideos] =  useSearchVideos("");
   const [search_suggestions,setSearchSuggestions] = useState([]);
@@ -25,9 +25,8 @@ const Header = () => {
   const [searchQuery,setSearchQuery] = useState("");
   const cache_search = useSelector((store)=>store.search);
   const isDarkMode = useSelector((store)=>store.app.IsDarkmode);
-  // const localStorage = useL
+
   const [isDark,setIsDark] = useState(JSON.parse(localStorage.getItem('isDark')));
-  // console.log( JSON.parse(localStorage.getItem('isDark')))
   if(isDark){
     document.documentElement.classList.add("dark");
     
@@ -38,10 +37,6 @@ const Header = () => {
     dispatch(setDarkMode(false))
    }
    
-
-  const [theme,setTheme] = useState("light");
-
-  // console.log("kuch kar bhai iska");
  const get_Suggestions = async() => {
       const data = await fetch(SEARCH_SUGGESTION_API+searchQuery);
       const json = await data.json();
@@ -63,14 +58,12 @@ const Header = () => {
 
      return ()=> clearTimeout(timer);
     }
-},[searchQuery,theme])
+},[searchQuery])
 
 const handleSearch = (search) =>{
 
    setSearchQuery(search)
    setShowSuggestions(false)
-
-  //  console.log("kya hua")
 }
   const handleSidebar = () => {
        dispatch(toogleMenu());
@@ -81,16 +74,13 @@ const handleSearch = (search) =>{
   }
   const handleTheme = () =>{
     localStorage.setItem('isDark', !isDark)
-    // setTheme(theme === "dark" ? "light" : "dark");
     setIsDark(!isDark);
-
-    // dispatch(setDarkMode(isDark ? false: true))
   }
     return(
         <div className="bg-white dark:bg-black  grid grid-flow-col px-5 py-2 shadow-lg" onDoubleClick={()=>setShowSuggestions(false)}>
             <div className="flex px-5 col-span-1">
                 <img onClick={handleSidebar} alt="Hemburger_icon" className="h-8 mt-4" src={isDarkMode ? whiteMenu_icon :blackMenu_icon}/>
-                {/* <img alt="youtube_icon" className="h-16 ml-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Uru4syYf1tPEtG-nWC2NtC4HIMTUNuHU8jtDaYLGc9xkIv_iA-nQ&s"/> */}
+              
                 <img alt="youtube_icon" className="h-16 w-32 ml-2" src={isDarkMode ? whiteYoutube_logo :BlackYouTube_logo}/>
             </div>
             <form onSubmit={(e)=>e.preventDefault()} className="col-span-10 px-5 py-3 center ml-24" >
@@ -109,20 +99,10 @@ const handleSearch = (search) =>{
             <div className="grid col-span-1 py-4 ">
               <img alt="user_icon" className="h-8 w-8  dark:w-auto dark:h-auto dark:-mt-3 dark:m" src={isDarkMode ? whiteUser_icon :blackUser_icon}/>
              
-              {/* <div className='absolute bg-gray-100 mt-9 rounded-md shadow- w-40 -ml-14 text-center'>
-                 <ul className=' '>
-                  <li className=' py-2 border  border-b-slate-200 '>Google Account</li>
-                  <li className=' py-2  border border-b-slate-200 '>Switch Account</li>
-                  <li className=' py-2  border border-b-slate-200 '>Sign out</li>
-                  <li className=' py-2  border border-b-slate-200 '>Youtube Studio</li>
-                  <li className=' py-2  border border-b-slate-200 '>Purchase of Memberships</li>
-                  <li className=' py-2  border border-b-slate-200 '>Appearence</li>
-                  <li className=' py-2  border border-b-slate-200 '>Location</li>
-                 </ul>
-              </div> */}
+            
             </div>
             <div className="grid col-span-1 h-1 py-4 ">
-                {/* <button className='bg-blue-500 py-1 px-1 text-white rounded-xl' onClick={handleTheme}>Dark</button> */}
+               
                    <input type="checkbox" class="checkbox" id="checkbox" onChange={handleTheme}/>
                   <label for="checkbox" class="checkbox-label bg-black dark:bg-slate-400">
                      

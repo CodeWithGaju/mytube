@@ -7,10 +7,7 @@ import { useEffect } from 'react';
 const LiveChat = () => {
   const liveChats = useSelector((store)=>store.chats.chatMessage);
   const dispatch = useDispatch();
-    // const [userName,setUserName] = useState(null);
-
-    
-
+  
     const generateChat = () =>{
       dispatch(addChats(({name:getGeneratedName(),comment:getGeneratedChatMessage()})));
     }

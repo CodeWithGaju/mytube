@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import VideoCard from './VideoCard'
 import usePopularVideos from '../Hooks/usePopularVideos'
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ const VideoContainer = () => {
   return (
     <div className=' flex flex-wrap px-1 dark:text-white  h-screen w-screen overflow-y-scroll '>
       {homePageVideos.map((video)=> <Link to={"/watch?v="+video.id}  key={video.id}><VideoCard videoItems={video} /></Link>)}
-        {/* <VideoCard thumbnail={thumbnails.medium} /> */}
+
     </div>
   )
 }

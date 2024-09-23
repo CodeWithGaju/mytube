@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import black_home from "../Svg/black_Home.svg"
 import white_home from "../Svg/white_Home.svg"
 import WhiteSubcription from "../Svg/whiteSubscription.svg"
