@@ -28,6 +28,18 @@ body.dark h1, body.dark .support a {color: #fff;}
   position: absolute;
 }
 
+@media(max-width:481px){
+  
+  
+ 
+  
+  
+  
+  
+  
+
+}
+
 .checkbox-label {
   /* background-color:rgba(36, 33, 33, 0.21); */
   width: 50px;
@@ -59,4 +71,36 @@ body.dark h1, body.dark .support a {color: #fff;}
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(24px);
 }
+.check1{
+  color: red;
+}
 
+@media(max-width:481px){
+  .checkbox-label {
+    /* background-color:rgba(36, 33, 33, 0.21); */
+    width: 25px;
+    height: 16px;
+    border-radius: 50px;
+    position: relative;
+    padding: 2px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fa-moon {color: #f1c40f;}
+  .fa-sun {color: #f39c12;}
+  .checkbox-label .ball {
+    /* background-color: #fff; */
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+  .checkbox:checked + .checkbox-label .ball {
+    transform: translateX(12px);
+  }
+}

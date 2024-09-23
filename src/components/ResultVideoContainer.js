@@ -17,7 +17,7 @@ useEffect(()=>{
  if(searchVideos.length===0) return;
 
   return (
-    <div className='h-96 dark:bg-black w-[1300]'>
+    <div className='h-96 dark:bg-black w-auto md:w-[1300px]'>
       {searchVideos.map((video)=> <Link to={"/watch?v="+video.id.videoId}  key={video.id}><ResultVideoCard videoItems={video} /></Link>)}
     </div>
   )

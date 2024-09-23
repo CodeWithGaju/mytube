@@ -8,9 +8,9 @@ const Body = () => {
 
  const toogleSideBar = useSelector((store)=>store.app.isMenuOpen);
   return (
-    <div className='w-full '>
+    <div className='dark:bg-black'>
      <div className='w-full'><Header/></div>
-     <div className='w-full flex dark:bg-black'> 
+     <div className='w-auto flex dark:bg-black'> 
       {toogleSideBar ? <Sidebar/> : null}
            <Outlet/>
        </div>

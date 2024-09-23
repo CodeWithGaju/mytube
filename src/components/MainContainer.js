@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 const MainContainer = () => {
   const toogleSideBar = useSelector((store)=>store.app.isMenuOpen);
-  const style = toogleSideBar ? "w-[1300px] dark:bg-black " : "w-[1535px] dark:bg-black "
+  const style = toogleSideBar ? "w-[300px] md:w-[1300px] dark:bg-black " : "md:w-[1535px] dark:bg-black "
   return (
    
     <div className={style}>

@@ -77,39 +77,41 @@ const handleSearch = (search) =>{
     setIsDark(!isDark);
   }
     return(
-        <div className="bg-white dark:bg-black  grid grid-flow-col px-5 py-2 shadow-lg" onDoubleClick={()=>setShowSuggestions(false)}>
-            <div className="flex px-5 col-span-1">
-                <img onClick={handleSidebar} alt="Hemburger_icon" className="h-8 mt-4" src={isDarkMode ? whiteMenu_icon :blackMenu_icon}/>
+        <div className="bg-white dark:bg-black  md:h-auto  grid grid-flow-col px-2 md:px-5 md:py-2 shadow-lg" onDoubleClick={()=>setShowSuggestions(false)}>
+            <div className="flex md:px-5 col-span-3 md:col-span-1">
+                <img onClick={handleSidebar} alt="Hemburger_icon" className="w-4 md:w-5 h-14 md:h-8 dark:-mt md:mt-4" src={isDarkMode ? whiteMenu_icon :blackMenu_icon}/>
               
-                <img alt="youtube_icon" className="h-16 w-32 ml-2" src={isDarkMode ? whiteYoutube_logo :BlackYouTube_logo}/>
+                <img alt="youtube_icon" className="h-14 md:h-16 w-32 md:ml-2" src={isDarkMode ? whiteYoutube_logo :BlackYouTube_logo}/>
             </div>
-            <form onSubmit={(e)=>e.preventDefault()} className="col-span-10 px-5 py-3 center ml-24" >
-              <input onFocus={()=>setShowSuggestions(true)}  onChange={(e)=>{setSearchQuery(e.target.value)}} value={searchQuery} className="h-10 px-5  border rounded-l-full border-gray-300 text-black dark:bg-black dark:text-white dark:border-opacity-50 w-8/12" placeholder="Search" type="text "/>
+            <form onSubmit={(e)=>e.preventDefault()} className="col-span-3 md:col-span-10 px-2 md:px-5 py-4  md:center ml-2 md:ml-24" >
+              <input onFocus={()=>setShowSuggestions(true)}  onChange={(e)=>{setSearchQuery(e.target.value)}} value={searchQuery} className=" md:h-10  px-2 md:px-5 text-sm md:text-base border rounded-l-full border-gray-300 text-black dark:bg-black dark:text-white dark:border-opacity-50 w-7/12 md:w-8/12" placeholder="Search" type="text "/>
              
-             <Link to={"/result"}><button onClick={getVideoResult} className="h-10 px-3 py-3 text-center rounded-r-full  bg-gray-200  dark:bg-black dark:border  w-auto dark:border-gray-50 dark:border-opacity-50 "> <img className="w-3.5 dark:" src={isDarkMode ? whiteSearch : blackSearch}/></button></Link>
-              {showSuggestions && <div className='absolute bg-white w-[40rem] rounded-lg shadow-lg'>
+             <Link to={"/result"}><button onClick={getVideoResult} className="md:h-10 px-2 md:px-3 py-[6px] md:py-3 text-center rounded-r-full  bg-gray-200  dark:bg-black dark:border  w-auto dark:border-gray-50 dark:border-opacity-50 "> <img className="w-[10px] md:w-3.5 h-auto dark:" src={isDarkMode ? whiteSearch : blackSearch}/></button></Link>
+              
+              {showSuggestions && <div className='absolute bg-white dark:bg-black dark:text-white text-xs md:text-base dark:bg-opacity-80  w-[40rem] rounded-lg shadow-lg dark:shadow-sm dark:shadow-white'>
                 <ul>
                 {search_suggestions.map((search)=><><li  onClick={()=>handleSearch(search)}   className='px-2 py-1 flex m-1'>
-                  <img className="w-5 " src={isDarkMode ? whiteSearch :blackSearch}/>
+                  <img className="w-3 md:w-5 " src={isDarkMode ? whiteSearch :blackSearch}/>
                   <a className='px-5 cursor-pointer' >{search}</a>
                 </li></>)}
                  </ul>
               </div>}
             </form>
-            <div className="grid col-span-1 py-4 ">
-              <img alt="user_icon" className="h-8 w-8  dark:w-auto dark:h-auto dark:-mt-3 dark:m" src={isDarkMode ? whiteUser_icon :blackUser_icon}/>
+            <div className="grid col-span-3 md:col-span-1 py-5  md:px-0 md:py-4 ">
+              <img alt="user_icon" className="h-5  md:h-8 md:w-8  dark:md:w-auto  dark:h-8 dark:-mt-2 dark:md:h-14 dark:md:-mt-3 dark:md:ml-4" src={isDarkMode ? whiteUser_icon :blackUser_icon}/>
              
             
             </div>
-            <div className="grid col-span-1 h-1 py-4 ">
+            <div className="grid col-span-3 md:col-span-1 pl-2 pr-9 h-1 py-5 ">
                
                    <input type="checkbox" class="checkbox" id="checkbox" onChange={handleTheme}/>
-                  <label for="checkbox" class="checkbox-label bg-black dark:bg-slate-400">
+                  <label for="checkbox" class="checkbox-label bg-black  dark:bg-slate-400">
                      
-                  <i><img class="fas fa-moon w-8 text-center h-5 rounded-full bg-orange-400" src={Sun}/></i>
-                  <i><img class="fas fa-sun  w-8 text-center rounded-full bg-white h-5" src={Moon}/></i>
-                  <span class="ball bg-white text-sm">{isDark ? "on" : "off"}</span>
+                  <i><img class="fas fa-moon md:w-8 text-center h-2 md:h-5 rounded-full bg-orange-400" src={Sun}/></i>
+                  <i><img class="fas fa-sun  md:w-8 text-center h-2 md:h-5 rounded-full bg-white" src={Moon}/></i>
+                  <span class="ball bg-white text-[8px] px-[1px] md:text-sm">{isDark ? "on" : "off"}</span>
                    </label>
+                   
                </div>
         </div>
     )
