@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 const VideoContainer = () => {
  usePopularVideos();
  const homePageVideos = useSelector((store)=>store.videosData.homePageVideos);
+ if(homePageVideos===undefined)return;
  if(homePageVideos.length===0) return;
 
   return (
