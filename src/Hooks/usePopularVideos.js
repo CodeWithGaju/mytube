@@ -19,7 +19,7 @@ const usePopularVideos = () => {
    } 
 }
 useEffect(()=>{
-  homePageVideos.length === 0 && fetchPopularVideos();
+  // homePageVideos.length === 0 && fetchPopularVideos();
 },[])
   return popularVideos;
 }
