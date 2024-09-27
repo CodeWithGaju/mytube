@@ -20,7 +20,7 @@ const useSearchVideos = (query) => {
     }
   }
   useEffect(()=>{
-    // fetchSearchData();
+    fetchSearchData();
   },[search_videos])
   return [search_videos,setSearchVideos];
 }

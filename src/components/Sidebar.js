@@ -6,16 +6,22 @@ import BlackSubscription from "../Svg/blackSubcription.svg"
 import transparent_shorts from "../Svg/transparent_shorts_icon.svg"
 import black_shorts from "../Svg/black_shorts.svg"
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setMainCategory } from '../utils/videosDataSlice'
 
 
 const Sidebar = () => {
  const isDarkMode = useSelector((store)=>store.app.IsDarkmode);
+ const dispatch = useDispatch();
+ const videoCategories = useSelector((store)=>store.videosData.videoCategories)
+ const handleButton = (id) =>{
+    dispatch(setMainCategory(parseInt(id)));
+ }
   return (
     <div className='text-center h-screen  bg-white dark:bg-black dark:text-white w-[100px] md:w-[250px] z-0 overflow-y-scroll '>
          <div>
-            <ul className='border-b border-gray-200 dark:border-opacity-20 md:m-2'>
-            <Link to={"/"} > <li  className='md:p-2 mx-2 md:text-lg text-xs font-bold rounded-md border-none bg-gray-200 dark:bg-opacity-20 flex justify-evenly'> <img className=' w-3 md:w-6' src={isDarkMode?white_home:black_home} alt='home_logo'/>
+            <ul className='border-b border-gray-200 dark:border-opacity-20 md:m-2 overflow-hidden'>
+            <Link to={"/"} > <li  className='p-2 md:mx-2 md:text-lg text-xs font-bold rounded-md border-none bg-gray-200 dark:bg-opacity-20 flex justify-evenly'> <img className=' w-3 md:w-6' src={isDarkMode?white_home:black_home} alt='home_logo'/>
                 <h1 className='' >Home</h1></li></Link>
                 <li className='p-2 md:mx-2 text-xs md:text-lg font-bold rounded-md  hover:bg-gray-200 hover:dark:bg-opacity-20 flex justify-evenly'><img className='w-3 md:w-6 dark:md:w-5' src={isDarkMode ? transparent_shorts : black_shorts  }  alt='home_logo'/>
                 <h1>Shorts</h1></li>
@@ -36,17 +42,8 @@ const Sidebar = () => {
          </div>
          <div>
             <h1 className='text-left p-2 md:pl-10 text-xs md:text-lg font-bold  hover:bg-gray-200  hover:dark:bg-opacity-20'>Explore</h1>
-         <ul className='border-b m-3 border-gray-200  dark:border-opacity-20'>
-                <li className='p-2 text-xs md:text-lg font-bold rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Tranding</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Music</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Movie</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Lives</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Gaming</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>News</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Sports</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Courses</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Fashion & Beauty</li>
-                <li className='p-2 text-xs md:text-lg font-medium rounded-md  hover:bg-gray-200  hover:dark:bg-opacity-20'>Podcasts</li>
+         <ul className='border-b md:m-3 border-gray-200  dark:border-opacity-20'>
+         {videoCategories.map((category)=> <li key={category.id}  className='p-2 md:text-lg text-xs md:font-medium rounded-md  hover:bg-gray-200 text-center hover:dark:bg-opacity-20'><button className='text-center' onClick={()=>handleButton(category.id)}>{category.snippet.title}</button></li>)}
             </ul>
          </div>
          

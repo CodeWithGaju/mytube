@@ -7,14 +7,14 @@ import usePopularVideos from '../Hooks/usePopularVideos';
 
 const ButtonList = () => {
     useVideCategories();
-    // const [categoryReload,]
+    
     const dispatch = useDispatch();
     const videoCategories = useSelector((store)=>store.videosData.videoCategories)
     const handleButton = (id) =>{
        dispatch(setMainCategory(parseInt(id)));
     }
    useEffect(()=>{
-    
+     
    },[])
     const btn_list = ["All","Music","Weight Training","Comdey Clubs","Dramedy","Motor oils","Tamil Cinema","Thrillers","Live","Suzuki","Presentation","Asian Music"];
     return (
