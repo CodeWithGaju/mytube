@@ -12,9 +12,9 @@ const WatchPage = () => {
   const [searchParam] = useSearchParams();
   const [ChatInput,setChatInput] = useState();
   const toogleSideBar = useSelector((store)=>store.app.isMenuOpen);
-  const style = toogleSideBar ? "w-[1300px] flex " : "w-[1535px] flex ";
-  const frameStyle = toogleSideBar ? "w-[900px] mt-2 " : "w-[1050px] ml-14 mt-2";
-  const chatStyle = toogleSideBar ? "w-[400px] ml-4  " : "w-[450px] ml-4 mt-2 ";
+  const style = toogleSideBar ? "w-[300px] md:w-[1300px] md:flex " : "w-[380px] md:w-[1535px] md:flex ";
+  const frameStyle = toogleSideBar ? "w-[320px] h-[150px]  md:w-[900px] md:h-[500px] mt-2 " : "w-[350px] md:w-[1050px] md:h-[500px] md:ml-14 mt-2 mx-auto";
+  const chatStyle = toogleSideBar ? "w-[380px] md:w-[400px] md:ml-4  " : "w-[380px] md:w-[450px] md:ml-4 mt-2 ";
 
   useEffect(()=>{
      dispatch(toogleMenu())
@@ -27,18 +27,19 @@ const WatchPage = () => {
 
   return (
     <div className={style}>
-      <div className='h-screen overflow-y-scroll no-scrollbar dark:bg-black dark:text-white'>
+      <div className='md:h-screen overflow-y-scroll no-scrollbar dark:bg-black dark:text-white'>
          {/* video Section */}
-         <div className=' h-2/3 '>
-         <iframe className={' px-5 rounded-lg '+frameStyle} height="500" src={"https://www.youtube.com/embed/"+searchParam.get("v")} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         <div className=' md:h-2/3'>
+         <iframe className={' px-2 md:px-5 rounded-lg '+frameStyle}  src={"https://www.youtube.com/embed/"+searchParam.get("v")} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
          </div>
          {/* Comment Section */}
          <CommentsContainer/>
       </div>
-      <div className=' w-1/3 dark:bg-black dark:bg-opacity-90'>
+      <div className=' md:w-1/3 dark:bg-black dark:bg-opacity-90'>
       <div className='head'>
       {/* <ButtonList/> */}
       </div>
+     
       <div className={chatStyle}>
            <LiveChat/>
            <form  onSubmit={(e)=>e.preventDefault()} className='h-12 px-2 py-2 w-full border border-gray-200'>

@@ -18,7 +18,7 @@ const Sidebar = () => {
     dispatch(setMainCategory(parseInt(id)));
  }
   return (
-    <div className='text-center h-screen  bg-white dark:bg-black dark:text-white w-[100px] md:w-[250px] z-0 overflow-y-scroll '>
+    <div className='text-center h-screen  bg-white dark:bg-black dark:text-white w-[100px] md:w-[250px] z-0 overflow-y-scroll overflow-x-hidden no-scrollbar'>
          <div>
             <ul className='border-b border-gray-200 dark:border-opacity-20 md:m-2 overflow-hidden'>
             <Link to={"/"} > <li  className='p-2 md:mx-2 md:text-lg text-xs font-bold rounded-md border-none bg-gray-200 dark:bg-opacity-20 flex justify-evenly'> <img className=' w-3 md:w-6' src={isDarkMode?white_home:black_home} alt='home_logo'/>

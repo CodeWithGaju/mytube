@@ -77,9 +77,9 @@ const handleSearch = (search) =>{
     setIsDark(!isDark);
   }
     return(
-        <div className="bg-white dark:bg-black  md:h-auto  grid grid-flow-col px-2 md:px-5 md:py-2 shadow-lg" onDoubleClick={()=>setShowSuggestions(false)}>
+        <div className="bg-white dark:bg-black  md:h-auto  grid grid-flow-col px-2 md:px-5 md:py-2 shadow-lg"  onDoubleClick={()=>setShowSuggestions(false)}>
             <div className="flex md:px-5 col-span-3 md:col-span-1">
-                <img onClick={handleSidebar} alt="Hemburger_icon" className="w-4 md:w-5 h-14 md:h-8 dark:-mt md:mt-4" src={isDarkMode ? whiteMenu_icon :blackMenu_icon}/>
+                <img onClick={handleSidebar} alt="Hemburger_icon" className="w-4 md:w-5 ml-2 h-14 md:h-8 dark:-mt md:mt-4" src={isDarkMode ? whiteMenu_icon :blackMenu_icon}/>
               
                 <img alt="youtube_icon" className="h-14 md:h-16 w-32 md:ml-2" src={isDarkMode ? whiteYoutube_logo :BlackYouTube_logo}/>
             </div>
